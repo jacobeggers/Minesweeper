@@ -27,7 +27,7 @@ public class Frame extends JFrame implements MouseListener {
 	
 	public Frame() {
 		System.out.println();
-		Bomb bomb = new Bomb(10, 8, 8);
+		Bomb bomb = new Bomb(10, 9, 9);
 		int[] bombX = bomb.placeBombsX();
 		int[] bombY = bomb.placeBombsY();
 		
@@ -64,8 +64,8 @@ public class Frame extends JFrame implements MouseListener {
 	
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		int x = (e.getX() - 8) / (Panel.WINDOW_WIDTH / 8);
-		int y = (e.getY() - 32) / (Panel.WINDOW_HEIGHT / 8);
+		int x = (e.getX() - 8) / (Panel.WINDOW_WIDTH / 9);
+		int y = (e.getY() - 32) / (Panel.WINDOW_HEIGHT / 9);
 		Board.selectOnBoard(x, y);
 		panel.updateWindow();
 		System.out.println(Board.drawBoard());

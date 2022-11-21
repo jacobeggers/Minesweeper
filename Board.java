@@ -1,6 +1,6 @@
 public class Board {
-	private static int width = 8;
-	private static int height = 8;
+	private static int width = 9;
+	private static int height = 9;
 	private static String[][] boardLayout;
 	private static String[][] boardCover;
 	private static boolean[][] boardChecked;
