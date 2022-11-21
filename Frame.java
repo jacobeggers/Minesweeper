@@ -6,40 +6,18 @@ public class Frame extends JFrame implements MouseListener {
 	
 	Panel panel = new Panel();
 	
-	private boolean testForOverlap(int[] bx, int[] by) {
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++) {
-				if (i != j && bx[i] == bx[j] && by[i] == by[j]) {
-					String testX = "";
-					String testY = "";
-					for (int ii = 0; ii < 10; ii++) {
-						testX += bx[ii];
-						testY += by[ii];
-					}
-					System.out.println(String.format("(%s)", testX));
-					System.out.println(String.format("(%s)", testY));
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-	
 	public Frame() {
 		System.out.println();
-		Bomb bomb = new Bomb(10, 9, 9);
+		Bomb bomb = new Bomb(20, 9, 9);
+		
+		bomb.shuffleBombs();
+		
 		int[] bombX = bomb.placeBombsX();
 		int[] bombY = bomb.placeBombsY();
 		
-		while (testForOverlap(bombX, bombY) == true) {
-			System.out.println("Mines Overlapped");
-			bombX = bomb.placeBombsX();
-			bombY = bomb.placeBombsY();
-		}
-		
 		String testX = "";
 		String testY = "";
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 20; i++) {
 			testX += bombX[i];
 			testY += bombY[i];
 		}
