@@ -8,24 +8,14 @@ public class Frame extends JFrame implements MouseListener {
 	
 	public Frame() {
 		System.out.println();
-		Bomb bomb = new Bomb(20, 9, 9);
+		Bomb bomb = new Bomb(10, 9, 9);
 		
 		bomb.shuffleBombs();
 		
 		int[] bombX = bomb.placeBombsX();
 		int[] bombY = bomb.placeBombsY();
-		
-		String testX = "";
-		String testY = "";
-		for (int i = 0; i < 20; i++) {
-			testX += bombX[i];
-			testY += bombY[i];
-		}
-		System.out.println(String.format("(%s)", testX));
-		System.out.println(String.format("(%s)", testY));
 
 		Board.createBoard(bombX, bombY);
-		System.out.println(Board.drawBoard());
 
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		this.setTitle("Minesweeper");
@@ -37,7 +27,7 @@ public class Frame extends JFrame implements MouseListener {
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
-		;
+		// who's idea wasd it
 	}
 	
 	@Override
@@ -46,21 +36,20 @@ public class Frame extends JFrame implements MouseListener {
 		int y = (e.getY() - 32) / (Panel.WINDOW_HEIGHT / 9);
 		Board.selectOnBoard(x, y);
 		panel.updateWindow();
-		System.out.println(Board.drawBoard());
 	}
 	
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		;
+		// to make it where
 	}
 	
 	@Override
 	public void mouseExited(MouseEvent e) {
-		;
+		// all of these methods have to be listed 
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		;
+		// despite not having any use???
 	}
 }
