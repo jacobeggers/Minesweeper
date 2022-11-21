@@ -5,17 +5,11 @@ import java.awt.event.*;
 public class Frame extends JFrame implements MouseListener {
 	
 	Panel panel = new Panel();
+	Bomb bomb = new Bomb(10, 9, 9);
 	
 	public Frame() {
-		System.out.println();
-		Bomb bomb = new Bomb(10, 9, 9);
-		
 		bomb.shuffleBombs();
-		
-		int[] bombX = bomb.placeBombsX();
-		int[] bombY = bomb.placeBombsY();
-
-		Board.createBoard(bombX, bombY);
+		Board.createBoard(bomb.placeBombsX(), bomb.placeBombsY());
 
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		this.setTitle("Minesweeper");
