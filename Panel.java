@@ -31,31 +31,33 @@ public class Panel extends JPanel {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				
-				
-				if (Board.drawBoard().charAt(ii) == '#') {
-					g.drawImage(new ImageIcon("tile.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
-				} else if (Board.drawBoard().charAt(ii) == '*') {
-					g.drawImage(new ImageIcon("mine.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
-				} else if (Board.drawBoard().charAt(ii) == '1') {
-					g.drawImage(new ImageIcon("one.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
-				} else if (Board.drawBoard().charAt(ii) == '2') {
-					g.drawImage(new ImageIcon("two.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
-				} else if (Board.drawBoard().charAt(ii) == '3') {
-					g.drawImage(new ImageIcon("three.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
-				} else if (Board.drawBoard().charAt(ii) == '4') {
-					g.drawImage(new ImageIcon("four.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
-				} else if (Board.drawBoard().charAt(ii) == '5') {
-					g.drawImage(new ImageIcon("five.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
-				} else if (Board.drawBoard().charAt(ii) == '6') {
-					g.drawImage(new ImageIcon("six.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
-				} else if (Board.drawBoard().charAt(ii) == '7') {
-					g.drawImage(new ImageIcon("seven.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
-				} else if (Board.drawBoard().charAt(ii) == '8') {
-					g.drawImage(new ImageIcon("eight.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+				try {
+					if (Board.drawBoard().charAt(ii) == '#') {
+						g.drawImage(new ImageIcon("tile.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					} else if (Board.drawBoard().charAt(ii) == '*') {
+						g.drawImage(new ImageIcon("mine.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					} else if (Board.drawBoard().charAt(ii) == '1') {
+						g.drawImage(new ImageIcon("one.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					} else if (Board.drawBoard().charAt(ii) == '2') {
+						g.drawImage(new ImageIcon("two.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					} else if (Board.drawBoard().charAt(ii) == '3') {
+						g.drawImage(new ImageIcon("three.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					} else if (Board.drawBoard().charAt(ii) == '4') {
+						g.drawImage(new ImageIcon("four.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					} else if (Board.drawBoard().charAt(ii) == '5') {
+						g.drawImage(new ImageIcon("five.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					} else if (Board.drawBoard().charAt(ii) == '6') {
+						g.drawImage(new ImageIcon("six.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					} else if (Board.drawBoard().charAt(ii) == '7') {
+						g.drawImage(new ImageIcon("seven.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					} else if (Board.drawBoard().charAt(ii) == '8') {
+						g.drawImage(new ImageIcon("eight.png").getImage(), j * (WINDOW_WIDTH / 8), i * (WINDOW_WIDTH / 8), null);
+					}
+					
+					ii++;
+				} catch (NullPointerException e) {
+					;
 				}
-				
-				ii++;
-				
 			}
 		}
 	}

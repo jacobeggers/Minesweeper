@@ -7,12 +7,6 @@ public class Frame extends JFrame implements MouseListener {
 	Panel panel = new Panel();
 	
 	public Frame() {
-		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-		this.add(panel);
-		this.pack();
-		this.addMouseListener(this);
-		this.setVisible(true);
-		
 		System.out.println();
 		Bomb bomb = new Bomb(10, 8, 8);
 		int[] bombX = bomb.placeBombsX();
@@ -26,8 +20,24 @@ public class Frame extends JFrame implements MouseListener {
 				}
 			}
 		}
+		
+		String testX = "";
+		String testY = "";
+		for (int i = 0; i < 10; i++) {
+			testX += bombX[i];
+			testY += bombY[i];
+		}
+		System.out.println(String.format("(%s)", testX));
+		System.out.println(String.format("(%s)", testY));
+
 		Board.createBoard(bombX, bombY);
 		System.out.println(Board.drawBoard());
+
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.add(panel);
+		this.pack();
+		this.addMouseListener(this);
+		this.setVisible(true);
 	}
 	
 	@Override
