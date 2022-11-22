@@ -21,21 +21,21 @@ public class Bomb {
 		int count = 0;
 		int tempBombs = numBombs;
 		int[][] occupiedSpaces = new int[width][height];
-		while (numBombs > 0) {
+		while (tempBombs > 0) {
 			for (int i = 0; i < width; i++) {
 				for (int j = 0; j < height; j++) {
 					int chance = r.nextInt(0, tempNum);
-					if (chance == 0 && occupiedSpaces[j][i] != 1 && numBombs > 0) {
+					if (chance == 0 && occupiedSpaces[j][i] != 1 && tempBombs > 0) {
 						try {
 							x[count] = i;
 							y[count] = j;
 						} catch (IndexOutOfBoundsException e) {
-							System.out.println("To many mines were placed!");
+							System.out.println("Too many mines were placed!");
 						}
 						occupiedSpaces[j][i] = 1;
 						tempNum--;
 						count++;
-						numBombs--;
+						tempBombs--;
 					}
 				}
 			}

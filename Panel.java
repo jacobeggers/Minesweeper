@@ -60,6 +60,12 @@ public class Panel extends JPanel {
 				}
 			}
 		}
+		if (Board.hasLost == true) {
+			g.drawImage(new ImageIcon("lose.png").getImage(), (WINDOW_WIDTH / 2) - 100, (WINDOW_HEIGHT / 2) - 50, null);
+		}
+		if (Board.hasWon == true) {
+			g.drawImage(new ImageIcon("win.png").getImage(), (WINDOW_WIDTH / 2) - 100, (WINDOW_HEIGHT / 2) - 50, null);
+		}
 	}
 	
 	public void updateWindow() {
