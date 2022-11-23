@@ -20,19 +20,19 @@ public class Bomb {
 		int tempNum = width * height;
 		int count = 0;
 		int tempBombs = numBombs;
-		int[][] occupiedSpaces = new int[width][height];
+		int[][] occupiedSpaces = new int[height][width];
 		while (tempBombs > 0) {
-			for (int i = 0; i < width; i++) {
-				for (int j = 0; j < height; j++) {
+			for (int i = 0; i < height; i++) {
+				for (int j = 0; j < width; j++) {
 					int chance = r.nextInt(0, tempNum);
-					if (chance == 0 && occupiedSpaces[j][i] != 1 && tempBombs > 0) {
+					if (chance == 0 && occupiedSpaces[i][j] != 1 && tempBombs > 0) {
 						try {
-							x[count] = i;
-							y[count] = j;
+							x[count] = j;
+							y[count] = i;
 						} catch (IndexOutOfBoundsException e) {
 							System.out.println("Too many mines were placed!");
 						}
-						occupiedSpaces[j][i] = 1;
+						occupiedSpaces[i][j] = 1;
 						tempNum--;
 						count++;
 						tempBombs--;

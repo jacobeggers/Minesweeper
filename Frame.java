@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class Frame extends JFrame implements MouseListener {
 	
 	Panel panel = new Panel();
-	Bomb bomb = new Bomb(10, 9, 9);
+	Bomb bomb = new Bomb(Panel.BOMB_NUMBER, Panel.TILE_COLS, Panel.TILE_ROWS);
 	
 	public Frame() {
 		bomb.shuffleBombs();
@@ -31,8 +31,12 @@ public class Frame extends JFrame implements MouseListener {
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (Board.hasLost == false && Board.hasWon == false) {
-			int x = (e.getX() - 8) / (Panel.WINDOW_WIDTH / 9);
-			int y = (e.getY() - 32) / (Panel.WINDOW_HEIGHT / 9);
+			int x = (e.getX() - 8) / (Panel.WINDOW_WIDTH / Panel.TILE_COLS);
+			int y = (e.getY() - 32) / (Panel.WINDOW_HEIGHT / Panel.TILE_ROWS);
+			
+			//System.out.println(x);
+			//System.out.println(y);
+			
 			Board.selectOnBoard(x, y);
 			panel.updateWindow();
 		} else {

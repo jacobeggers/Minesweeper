@@ -1,6 +1,6 @@
 public class Board {
-	private static int width = 9;
-	private static int height = 9;
+	private static int width = Panel.TILE_COLS;
+	private static int height = Panel.TILE_ROWS;
 	private static char[][] boardLayout;
 	private static char[][] boardCover;
 	private static boolean[][] boardChecked;
@@ -31,7 +31,7 @@ public class Board {
 			}
 		}
 		boardChecked = makeChecked;
-
+		
 		for (int i = 0; i < x.length; i++) {
 			makeBoard[y[i]][x[i]] = '*';
 		}
@@ -89,12 +89,12 @@ public class Board {
 		int countTile = 0;
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				if (boardCover[j][i] == '#') {
+				if (boardCover[i][j] == '#') {
 					countTile++;
 				}
 			}
 		}
-		if (countTile == 10 && boardLayout[y][x] != '*') {
+		if (countTile == Panel.BOMB_NUMBER && boardLayout[y][x] != '*') {
 			hasWon = true;
 		}
 	}
