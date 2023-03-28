@@ -1,2 +1,1 @@
-# Minesweeper
-Minesweeper Game
+A basic java minesweeper game. The executable jar file does not work as of now, meaning that the game must be run though the command line. The classes may have to be compiled before running for the first time on a new device, and from that point on must be opened by running the "Main" class.
